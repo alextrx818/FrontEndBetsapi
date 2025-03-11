@@ -1,5 +1,5 @@
-# Tennis Match Data Visualization Frontend
-Last Updated: March 9, 2024
+# FrontEndBetsapi - Tennis Match Data Visualization Frontend
+Last Updated: March 11, 2025
 
 ## Project Overview
 This React-based frontend application provides a comprehensive visualization and analysis interface for tennis match data from multiple sources (RapidAPI and BetsAPI). The application processes and displays match information, odds data, and detailed statistics in an organized and user-friendly manner.
@@ -7,7 +7,7 @@ This React-based frontend application provides a comprehensive visualization and
 ## Key Features
 
 ### Match Details View
-The match details page implements a tabbed interface with four main sections:
+The match details page implements a tabbed interface with multiple sections:
 
 1. **Raw JSON Tab**
    - Displays unprocessed data from both API sources
@@ -36,6 +36,22 @@ The match details page implements a tabbed interface with four main sections:
      - Integration of both RapidAPI and BetsAPI odds data
    - Accordion-style market groups for better organization
    - Standardized odds format display
+
+5. **BetsAPI Data Tab**
+   - Raw JSON data specifically from BetsAPI
+   - Isolated view for easier debugging and analysis
+
+6. **RapidAPI Data Tab**
+   - Raw JSON data specifically from RapidAPI
+   - Isolated view for easier debugging and analysis
+
+7. **BetsAPI Tree Tab**
+   - Expanded tree view of BetsAPI data
+   - Pre-expanded nodes for easier navigation
+
+8. **RapidAPI Tree Tab**
+   - Expanded tree view of RapidAPI data
+   - Pre-expanded nodes for easier navigation
 
 ### Data Processing Features
 
@@ -74,6 +90,7 @@ The match details page implements a tabbed interface with four main sections:
 - Clear visual hierarchy
 - Loading states and error handling
 - Dynamic updates for real-time data
+- Data persistence between sessions using localStorage
 
 ### Technical Implementation Details
 
@@ -110,29 +127,33 @@ The match details page implements a tabbed interface with four main sections:
 - Controlled expansion state for tree view
 
 ### Recent Updates and Improvements
-- Added player name mapping for "TO WIN MATCH" market
-- Implemented recursive JSON tree view with expandable nodes
-- Enhanced field analysis with better type detection
-- Improved odds formatting and display
-- Added detailed market categorization
-- Enhanced error handling and loading states
 
-## Recent Updates
+#### March 11, 2025
+- Added dedicated tabs for viewing separate API data sources:
+  - New BetsAPI Data and RapidAPI Data tabs for raw JSON
+  - New BetsAPI Tree and RapidAPI Tree tabs with pre-expanded nodes
+- Implemented tennis tournament priority sorting on main page:
+  - ATP (highest priority)
+  - ATP Challenger
+  - WTA
+  - UTR
+  - ITF (lowest priority)
+- Added data persistence with localStorage to maintain data between sessions
 
-### Odds Display Enhancement (March 2024)
+#### Odds Display Enhancement (March 2024)
 - Modified odds display to show only American odds format
 - Removed decimal and fractional odds formats for cleaner presentation
 - Updated oddsConverter.js to optimize odds conversion functionality
 - Standardized odds display across all market types
 
-### BetsAPI Markets Tree Improvements
+#### BetsAPI Markets Tree Improvements
 - Enhanced player name mapping in market selections
 - Fixed player name display in "TO WIN MATCH" markets
 - Now correctly maps player numbers (1/2) to actual player names from:
   - Primary: match.betsapi_data.home.name / match.betsapi_data.away.name
   - Fallback: match.betsapi_data.inplay_event.home.name / match.betsapi_data.away.name
 
-### Market Display Enhancements
+#### Market Display Enhancements
 - Improved market categorization:
   - Main Markets (including TO WIN MATCH)
   - Game Markets
@@ -142,7 +163,7 @@ The match details page implements a tabbed interface with four main sections:
 - Cleaner and more intuitive market organization
 - Enhanced timestamp display for market updates
 
-### Technical Changes
+#### Technical Changes
 - Updated odds conversion logic in oddsConverter.js
   - Simplified to only handle American odds format
   - Improved number formatting and sign handling
@@ -152,13 +173,15 @@ The match details page implements a tabbed interface with four main sections:
   - Enhanced data structure for market display
 
 ## Setup and Installation
-
 ### Prerequisites
 - Node.js
 - npm or yarn
 
 ### Installation Steps
 1. Clone the repository
+   ```bash
+   git clone https://github.com/alextrx818/FrontEndBetsapi.git
+   ```
 2. Install dependencies:
    ```bash
    npm install
